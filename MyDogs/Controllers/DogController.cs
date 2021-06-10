@@ -85,7 +85,7 @@ namespace MyDogs.Controllers
         {
             var dogs = await _context.Dogs.ToListAsync();
             var query4 = from d in dogs
-                        where d.Name == name
+                        where d.Name.ToLower().Contains(name)
                         select d;
             return query4.ToList();
 
